@@ -42,4 +42,31 @@ public class Urinals {
 
         return l;
     }
+    public static int countUrinals(String input) {
+        if (input.contains("11"))
+            return -1;
+
+        if (input.length() == 1)
+            return input.contains("0") ? 1 : 0;
+
+        char[] inpchar = input.toCharArray();
+        int found = 0;
+        if ( inpchar[0] == '0' && inpchar[1] == '0' ) {
+            inpchar[0] = '1';
+            found++;
+        }
+
+        for(int i = 1; i <inpchar.length - 1; i++) {
+            if(inpchar[i] == '0' && inpchar[i-1] == '0' && inpchar[i+1] == '0') {
+                found++;
+                inpchar[i] = '1';
+            }
+        }
+
+        if (inpchar[inpchar.length - 2] == '0' && inpchar[inpchar.length-1] == '0')
+            found++;
+
+        return found;
+    }
+
 }

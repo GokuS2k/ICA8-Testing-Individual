@@ -19,4 +19,11 @@ class UrinalsTest {
         System.out.println("====== Gokul SUbramanian == TEST ONE EXECUTED =======");
         Assertions.assertEquals(true, Urinals.goodString("10001"));
     }
+
+    @Test
+    void returnfalsewhenstringissmall() {
+        System.out.println("====== Gokul Subramanian == TEST TWO EXECUTED =======");
+        Assertions.assertFalse(Urinals.goodString(""));
+    }
+
 }
