@@ -38,4 +38,10 @@ class UrinalsTest {
         Assertions.assertFalse(Urinals.goodString("123456789012345678901234567890"));
     }
 
+    @Test
+    void notfoundexcepwhenfilenotfound() {
+        System.out.println("====== Gokul Subramanian == TEST FOUR EXECUTED =======");
+        Assertions.assertThrows(FileNotFoundException.class, () -> Urinals.openFile("INVALID"));
+    }
+
 }
