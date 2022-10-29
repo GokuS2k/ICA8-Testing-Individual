@@ -109,4 +109,13 @@ class UrinalsTest {
         Assertions.assertTrue(fileExp.exists());
     }
 
+    @Test
+    void readIPfileWcountTOOPfile() throws InvalidFileException, IOException {
+        System.out.println("====== Gokul Subramanian == TEST ELEVEN EXECUTED =======");
+        int olc = ruleFilesList().size();
+        Urinals.perform();
+        int nwc = ruleFilesList().size();
+        Assertions.assertEquals(olc+1, nwc);
+    }
+
 }
