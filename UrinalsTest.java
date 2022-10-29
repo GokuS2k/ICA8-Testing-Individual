@@ -50,4 +50,10 @@ class UrinalsTest {
         Assertions.assertThrows(InvalidFileException.class, () -> Urinals.openFile("EmptyFile.dat"));
     }
 
+    @Test
+    void noformatexcwhenfilecontainsInvalidNos() {
+        System.out.println("====== Gokul Subramanian == TEST SIX EXECUTED =======");
+        Assertions.assertThrows(NumberFormatException.class, () -> Urinals.openFile("InvalidNumberFormat.dat"));
+    }
+
 }
