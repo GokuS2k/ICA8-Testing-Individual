@@ -67,4 +67,46 @@ class UrinalsTest {
         Assertions.assertEquals(-1, Urinals.countUrinals("011"));
     }
 
+    private static List<String> ruleFilesList() {
+        File filefolder = new File(".");
+        return Arrays.stream(filefolder.listFiles()).map(File::getName)
+                .filter(name -> name.matches("rule.*.txt")).sorted().toList();
+    }
+
+    private static void deleteRuleFiles() {
+        ruleFilesList().forEach(file -> {
+            File ruleFile = new File(file);
+            try {
+                Files.deleteIfExists(ruleFile.toPath());
+            } catch (IOException e) {
+                System.out.println("Exception when deleting files");
+            }
+        });
+    }
+
+    @Test
+    void createsOPFiletw() throws IOException {
+        System.out.println("====== Gokul Subramanian == TEST NINE EXECUTED =======");
+        deleteRuleFiles();
+        File OPfile = new File("rule.txt");
+        List<Integer> vals = Arrays.asList(1,3);
+        Urinals.writeFile(vals);
+        Assertions.assertTrue(OPfile.exists());
+    }
+
+    @Test
+    void genrulefileifwhencounterRuleFileExist() throws IOException {
+        System.out.println("====== Gokul Subramanian == TEST TEN EXECUTED =======");
+        deleteRuleFiles();
+        FileWriter OPfile = new FileWriter("rule.txt");
+        OPfile.close();
+        List<Integer> vals = Arrays.asList(1,3);
+        File fileExp = new File("rule1.txt");
+        Urinals.writeFile(vals);
+        Assertions.assertTrue(fileExp.exists());
+        fileExp = new File("rule2.txt");
+        Urinals.writeFile(vals);
+        Assertions.assertTrue(fileExp.exists());
+    }
+
 }
