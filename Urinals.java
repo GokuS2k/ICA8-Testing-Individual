@@ -69,4 +69,27 @@ public class Urinals {
         return found;
     }
 
+    public static void writeFile(List<Integer> values) throws IOException {
+        String opfile = "rule.txt";
+        File fold = new File(".");
+        List<String> fnames = Arrays.stream(fold.listFiles()).map(File::getName)
+                .filter(name -> name.matches("rule.*.txt")).sorted().toList();
+        if (!fnames.isEmpty()) {
+            String hst = fnames.get(fnames.size() - 1);
+            String vals = hst.substring(4, hst.length() - 4);
+            if (vals.length() > 0)
+                opfile = String.format("rule%d.txt", Integer.parseInt(vals) + 1);
+            else
+                opfile = "rule1.txt";
+
+        }
+        FileWriter fwriter = new FileWriter(opfile);
+        for(Integer x:values) {
+            fwriter.write(x.toString()+"\n");
+        }
+        fwriter.close();
+    }
+
+
+
 }

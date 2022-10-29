@@ -26,4 +26,10 @@ class UrinalsTest {
         Assertions.assertFalse(Urinals.goodString(""));
     }
 
+    @Test
+    void returnfalsewhenstringhasinvalidchars() {
+        System.out.println("====== Gokul Subramanian == TEST THREE EXECUTED =======");
+        Assertions.assertFalse(Urinals.goodString("123"));
+    }
+
 }
