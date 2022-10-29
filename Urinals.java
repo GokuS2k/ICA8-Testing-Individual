@@ -90,6 +90,14 @@ public class Urinals {
         fwriter.close();
     }
 
+    public static void perform() throws InvalidFileException, IOException {
+        List<String> inputL = openFile(UFilePath);
+        List<Integer> c = new ArrayList<>();
+        for(String s:inputL)
+            c.add(countUrinals(s));
+        writeFile(c);
+    }
+
 
 
 }

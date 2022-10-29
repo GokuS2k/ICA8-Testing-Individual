@@ -32,4 +32,10 @@ class UrinalsTest {
         Assertions.assertFalse(Urinals.goodString("123"));
     }
 
+    @Test
+    void returnfalsewhenipstrislong() {
+        System.out.println("====== Gokul Subramanian == TEST SEVEN EXECUTED =======");
+        Assertions.assertFalse(Urinals.goodString("123456789012345678901234567890"));
+    }
+
 }
